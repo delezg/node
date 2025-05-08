@@ -3,11 +3,16 @@ name: Node Check
 on: [push]
 
 jobs:
-build:
-runs-on: Windows-latest
-steps:
-uses: actions/checkout@v4
-uses: actions/setup-node@v4
-with:
-node-version: '20'
-run: node -v
+  build:
+    runs-on: windows-latest  # Corregir a minúsculas
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check Node version
+        run: node -v
